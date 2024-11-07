@@ -387,7 +387,7 @@ def update_comparison(baseline_county, compare_county):
             "Retroreflectivity Score": baseline_data["RL_score_percentage"]* 100,
             "Good Bridge Percentage": baseline_data["good_bridge_percentage"]* 100,
             "Road Improvement Percentage": baseline_data["Final_Road_Improvement_Score_Percentage"] * 100,
-            "Unpaved Road Percentage": baseline_data["unpaved_percentage"]* 100
+            "Unpaved Road Percentage": 100- (baseline_data["unpaved_percentage"]* 100)
         }
 
     if compare_county == 'state level':
@@ -409,7 +409,7 @@ def update_comparison(baseline_county, compare_county):
             "Retroreflectivity Score": compare_data["RL_score_percentage"] * 100,
             "Good Bridge Percentage": compare_data["good_bridge_percentage"]* 100,
             "Road Improvement Percentage": compare_data["Final_Road_Improvement_Score_Percentage"] * 100,
-            "Unpaved Road Percentage": compare_data["unpaved_percentage"] * 100
+            "Unpaved Road Percentage": 100 - (compare_data["unpaved_percentage"] * 100)
         }
 
     # Generate radar plot
@@ -793,7 +793,7 @@ def update_metrics(county_selected):
             "Retroreflectivity Score": county_data["RL_score_percentage"].mean() * 100,
             "Good Bridge Percentage": county_data["good_bridge_percentage"].mean() * 100,
             "Road Improvement Percentage": county_data["Final_Road_Improvement_Score_Percentage"].mean() * 100,
-            "Unpaved Road Percentage": county_data["unpaved_percentage"].mean() * 100
+            "Unpaved Road Percentage": 100- (county_data["unpaved_percentage"].mean() * 100)
         }
 
         # Associate icons with metrics
