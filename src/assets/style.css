@@ -1,0 +1,587 @@
+/* Full-page container that covers the whole screen */
+.full-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #1e2130;
+    color: white;
+}
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding: 0;
+    color: white;
+    border:none /* Tiny line below the logos */
+}
+
+/* Left side logo: */
+.logo {
+    width:70%   
+}
+
+/* Right side logo: */
+.logo2 {
+    width:10%   
+}
+
+/* Left side of the header: */
+.header-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+/* Right side of the header: Logo */
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+/* Styling for the horizontal line */
+.divider {
+    border-top: 2px solid #a9b2cf;
+    padding: 0;
+    width: 100%;
+    margin: 10px 0px;
+    
+}
+
+/* Style for individual tabs */
+/*  tab1 styling */
+.tab-style1 {
+    height: 50px;  /* Set the height of the tab */
+    line-height: 0px;  /* Center text vertically */
+    padding: 0 15px;
+    margin: 0px 0px 0px 50px;
+    background-color: #161928 !important;  /* Background color */
+    color: white !important;  /* White text color */
+    font-size: 16px;  /* Font size */
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0;
+    text-align: center;
+}
+
+/* Styling for the active tab */
+.tab-style1.is-selected {
+    background-color: #002aff !important;  /* Keep background color same */
+    border-bottom: 10px solid #b3ff00 !important;  /* Blue stripe effect on active tab */
+    color: white !important;  /* White text color for active tab */
+}
+
+/*  tab2 styling */
+.tab-style2 {
+    height: 50px;  /* Set the height of the tab */
+    line-height: 0px;  /* Center text vertically */
+    padding: 0 15px;
+    margin: 0px 10px 0px 10px;
+    background-color: #161928 !important;  /* Background color */
+    color: rgb(255, 255, 255) !important;  /* White text color */
+    font-size: 16px;  /* Font size */
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0;
+    text-align: center;
+}
+
+/* Styling for the active tab */
+.tab-style2.is-selected {
+    background-color: #001eb6 !important;  /* Keep background color same */
+    border-top: 10px solid #b3ff00 !important;  /* Blue stripe effect on active tab */
+    color: white !important;  /* White text color for active tab */
+}
+
+.tab-style3 {
+    height: 50px;  /* Set the height of the tab */
+    line-height: 0px;  /* Center text vertically */
+    padding: 0 15px;
+    margin: 0px 50px 0px 0px;
+    background-color: #161928 !important;  /* Background color */
+    color: rgb(255, 255, 255) !important;  /* White text color */
+    font-size: 16px;  /* Font size */
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0;
+    text-align: center;
+}
+
+/* Styling for the active tab */
+.tab-style3.is-selected {
+    background-color: #001eb6 !important;  /* Keep background color same */
+    border-top: 10px solid #b3ff00 !important;  /* Blue stripe effect on active tab */
+    color: white !important;  /* White text color for active tab */
+}
+
+
+
+/* Main content container: Input box and map on both tabs */
+.content-container {
+    display: flex;
+    flex-grow: 1;  /* This will make it take up the remaining space */
+    padding: 0px 30px 0px 0px ;
+    height:85vh;
+    
+}
+
+/* Main content container: Input box and map on both tabs */
+.content-container3 {
+    display: flex;
+    flex-grow: 1;  /* This will make it take up the remaining space */
+    padding: 0px 30px 0px 0px ;
+    height:85vh;
+    box-sizing: border-box;
+    
+}
+
+/* Sidebar for inputs (on the left, 25% width) */
+.sidebar {
+    width: 20%;  /* Adjust width if needed */
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom:20px ;
+    margin-left: 50px;
+    background-color: #161928;
+    border-radius: 0px;
+    margin-right: 10px; /* Space between sidebar and map */
+    
+}
+
+/* Label for input fields */
+.sidebar-label {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: white;
+}
+
+.mainsidebar-label {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+/* Input container */
+.input-container {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Input group styling */
+.input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+    
+}
+/* Styling for input text (label) */
+.sidebar-label {
+    color: #ffffff; /* White text */
+    background-color: #606061; /* Dark background for the label */
+    padding: 10px 15px; /* Padding around label text */
+    white-space: nowrap;  /* Prevent text from breaking into multiple lines */
+    border-radius: 5px 0 0 5px;  /* Rounded corners on the left side only */
+    border: 1px solid #606061; /* Border around the label */
+    border-right: none; /* Removes the border on the right to connect with the input field */
+    flex-grow: 1;  /* Allows the label to take up most of the available space */
+}
+
+/* Styling for input fields */
+.input-field {
+    width: 100px;  /* Fixed width for the input box */
+    background-color: #161928; /* Dark background for the input field */
+    border: 1px solid #606061; /* Border around the input */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right side only */
+    color: #ffffff; /* White text color */
+    height: 30px; /* Height of the input field */
+    padding-left: 5px; /* Padding inside the input */
+    box-sizing: border-box;  /* Ensures padding is included in the width */
+    height:40px;
+    margin-top: -9px;
+}
+    
+
+/* Styling for the submit button */
+.submit-button {
+    background-color: #777774;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.sidebar-label2 {
+    color: #ffffff; /* Ensures text color is white */
+    background-color: #161928; /* Dark background for label */
+    font-size: 16px;
+    padding: 10px 15px; /* Adds space around the label text */
+    white-space: nowrap;  /* Prevents label from breaking into multiple lines */
+    border-radius: 5px;  /* Add rounded corners */
+}
+
+/* Readiness score box with yellow background */
+.readiness-box {
+    background-color: #161928;
+    padding: 10px;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    border: 1px solid #606061;
+}
+
+/* Map area on the right side (takes up remaining space) */
+.map-area { 
+    flex-grow: 1;
+    background-color: #161928;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 20px;
+    margin: 20px;
+    
+}
+
+
+
+.custom-dropdown .Select-control {
+    background-color: #161928; /* Dark background for dropdown */
+    border: 1px solid #606061; /* Border around dropdown */
+    color: #ffffff; /* Text color */
+    border-radius: 5px;
+}
+
+.custom-dropdown .Select-placeholder {
+    color: #777774; /* Placeholder text color */
+}
+
+.custom-dropdown .Select-menu-outer {
+    background-color: #161928; /* Dark background for dropdown options */
+    border: 1px solid #777774; /* Border around options */
+}
+
+.custom-dropdown .Select-option {
+    background-color: #161928; /* Background for options */
+    color: #ffffff; /* Text color */
+}
+
+.custom-dropdown .Select-option:hover {
+    background-color: #444444; /* Hover background for options */
+    color: #ffffff; /* Hover text color */
+}
+
+.custom-dropdown .Select-option.is-selected {
+    background-color: #0056b3; /* Background color for selected option */
+    color: #ffffff; /* Selected text color */
+}
+
+
+/* General container for the comparison view */
+.comparison-container {
+    display: flex;
+    flex-grow: 1;  /* This will make it take up the remaining space */
+    padding: 0px 30px 0px 0px ;
+    height:85vh;
+}
+
+/* Left Box: Now holds the radar chart and dropdowns (previously right box) */
+.left-box {
+    width: 70%;  /* Adjust width if needed */
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom:20px ;
+    margin-left: 50px;
+    background-color: #161928;
+    border-radius: 0px;
+    margin-right: 10px;
+}
+
+/* Right Box: Now holds the comment section (previously left box) */
+.right-box {
+    flex-grow: 1;
+    background-color: #161928;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 20px;
+    margin: 20px;
+    width: 30%; 
+}
+
+
+/* Radar chart and dropdowns container */
+.radar-chart-container {
+    display: flex;
+    justify-content: center;  /* Centers the radar chart horizontally */
+    align-items: center;      /* Centers the radar chart vertically */
+    width: 100%;              /* Full width of the container */
+    height: 70vh;             /* Set the height to a large percentage of the viewport */
+    padding: 0;               /* Remove extra padding */
+    margin: 0 auto;           
+
+}
+
+/* Custom dropdown styling */
+.custom-dropdown {
+    margin-bottom: 10px;
+    box-sizing: border-box;  /* Include padding in width calculation */
+    width: 100%;
+}
+
+.dropdown-container {
+    margin-bottom: 10px;
+    width: 100%;              /* Ensures full width */
+    box-sizing: border-box;    /* Include padding and border in width calculation */
+    display: flex;             /* Enable flexbox */
+    justify-content: space-between; /* Ensure items are spaced */
+    padding: 0;                /* Reset padding */
+    margin: 0;                 /* Reset margin */
+    gap: 10px;                 /* Gap between items */
+}
+
+/* Ensure items inside the container grow appropriately */
+.dropdown-container > * {
+    flex-grow: 1;              /* Items will grow to fill available space */
+    flex-basis: 0;             /* Base size set to 0 to allow growing */
+    max-width: 30%;            /* Limit to 48% width for two items with gap */
+    box-sizing: border-box;     /* Include padding and border in size */
+    padding: 10px;             /* Adjust padding if necessary */
+}
+
+/* Styling for the radar chart */
+/* Increase the size of the radar chart itself */
+.radar-chart {
+    width: 80%;               /* Set the radar chart to be 80% of the container width */
+    height: 60vh;             /* Make the radar chart take up more vertical space */
+}
+
+
+/* Comment box content styling */
+.comment-box {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Style for the entire content container */
+.content-container3 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Align items to the top for scrolling */
+    min-height: 100vh;  /* Full viewport height */
+    padding: 20px;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Style for the custom box */
+.custom-box {
+    width: 70vw;  /* 80% of the viewport width */
+    height: 80vh;  /* 80% of the viewport height */
+    background-color: #1e2130; /* Background color */
+    padding: 20px;  /* Padding around the box */
+    margin: 20px auto;  /* Centered horizontally with top and bottom margin */
+    border: 20px solid #161928;  /* Border around the box */
+    overflow-y: auto;  /* Enable vertical scrolling if content overflows */
+}
+
+/* Style for centering the text and image inside the custom container */
+
+
+/* Optional: Style the images inside the custom content */
+.custom-content-container img {
+    max-width: 100%;  /* Ensure the image fits within the box */
+    height: auto;     /* Maintain aspect ratio */
+    margin: 20px 0;   /* Add space around the image */
+}
+
+/* Example style for text */
+.custom-content-container p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+    color: white;  /* Set the text color to white */
+}
+.metrics-list-container {
+    width: 20%;  /* Maintain the current width */
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #161928;  /* Maintain the background color */
+    border: none;  /* Remove the border-radius for square corners */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;  
+}
+
+.metrics-list-container h3 {
+    font-size: 15px;  /* Make the title more prominent */
+    color: #FFFFFF;  /* White color for the title */
+    text-align: left;  /* Center the title */
+    margin-bottom: px;
+}
+
+/* Container for metrics */
+.metrics-list {
+    
+    background-color: #161928;
+    border-radius: 0px;
+}
+
+/* Metric label and value styling */
+.metric-label-row {
+    font-size: 14px;
+    color: #a3a3a3;
+    display: flex;
+    justify-content: space-between; /* To align label and value at opposite ends */
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+/* Icon and label styles */
+.metric-label-row i {
+    color: #444444;  /* Gold color for the icons */
+    margin-right: 10px;
+}
+
+/* Span for metric label text */
+.metric-label-row span {
+    color: #a3a3a3;
+    font-size: 13px;
+}
+
+/* Style to push the percentage value to the right */
+.metric-label-row .metric-value {
+    margin-left: auto; /* Push the value to the right */
+    text-align: right;
+    width: 50px; /* Optional: Define a fixed width for better alignment */
+}
+
+/* Default grey background for all progress bars */
+.metric-bar-background {
+    width: 100%;
+    height: 5px;
+    background-color: #444444;  /* Grey background */
+    border-radius: 5px;
+    position: relative;
+    margin-top: 5px;
+}
+
+/* Common foreground style */
+.metric-bar-foreground {
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Foreground bar styles for each metric */
+.metric-bar-foreground.pi-bar {
+    background-color: orange; /* Red for Physical Infrastructure */
+}
+
+.metric-bar-foreground.di-bar {
+    background-color: #32CD32; /* Green for Digital Infrastructure */
+}
+
+.metric-bar-foreground.svi-bar {
+    background-color: #1E90FF; /* Blue for Social Vulnerability Index */
+}
+
+/* Foreground bar colors for general metrics */
+.metric-bar-foreground.age-65-percent {
+    background-color: #1E90FF; /* Red for Age 65+ */
+}
+
+.metric-bar-foreground.no-veh-percent {
+    background-color: #1E90FF; /* Yellow for No Vehicle */
+}
+
+.metric-bar-foreground.latency-percent {
+    background-color: #32CD32; /* Blue for Network Latency */
+}
+
+.metric-bar-foreground.download-percent {
+    background-color: #32CD32; /* Green for Download Speed */
+}
+
+.metric-bar-foreground.upload-percent {
+    background-color: #32CD32; /* Pink for Upload Speed */
+}
+
+.metric-bar-foreground.rl-score-percent {
+    background-color: orange; /* Orange for Retroreflectivity */
+}
+
+.metric-bar-foreground.good-bridge-percent {
+    background-color: orange; /* Purple for Good Bridge Percentage */
+}
+
+.metric-bar-foreground.road-imp-percent {
+    background-color: orange; /* Steel Blue for Road Improvement */
+}
+
+.metric-bar-foreground.unpaved-percent {
+    background-color: orange; /* Brown for Unpaved Roads */
+}
+
+.circular-gauge-container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.circular-gauge {
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        green calc(var(--percentage) * 1%),
+        lightgray 0
+    );
+    border-radius: 50%;
+    position: relative;
+}
+
+.circular-gauge-inner {
+    width: 85%;
+    height: 85%;
+    background-color: #161928;
+    border-radius: 50%;
+    position: absolute;
+    top: 7.5%;
+    left: 7.5%;
+}
+
+.circular-gauge-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+}
+
+.circular-gauge-label {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin-top: 10px;
+}
+
+
+.comment-box{
+    max-height: 100%; 
+    overflow-y: auto;   
+    overflow-x: hidden; 
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #161928; 
+    color: white;
+}
