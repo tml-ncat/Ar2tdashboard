@@ -5,5 +5,5 @@ numpy==2.1.3
 pandas==2.2.3
 plotly==5.24.0
 gunicorn
-fiona==1.8.21
+fiona==1.9.6
 
