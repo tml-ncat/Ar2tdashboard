@@ -2,11 +2,12 @@
 .full-page-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;  /* Changed from height to min-height */
     width: 100vw;
     background-color: #1e2130;
     color: white;
 }
+
 /* Header styling */
 .header {
     display: flex;
@@ -258,8 +259,15 @@
     border-radius: 5px;
 }
 
-.custom-dropdown .Select-placeholder {
-    color: #777774; /* Placeholder text color */
+.custom-dropdown .Select-placeholder {  
+    color: #acacac !important;     
+}
+.custom-dropdown .Select-value {    
+    color: #d1d1d1 !important;      
+}
+
+.custom-dropdown .Select-value-label {  
+    color: #d1d1d1 !important;        
 }
 
 .custom-dropdown .Select-menu-outer {
@@ -284,11 +292,13 @@
 
 
 /* General container for the comparison view */
+
 .comparison-container {
     display: flex;
-    flex-grow: 1;  /* This will make it take up the remaining space */
-    padding: 0px 30px 0px 0px ;
-    height:85vh;
+    flex-grow: 1;
+    padding: 0px 30px 0px 0px;
+    min-height: calc(100vh - 150px);  /* Changed from height to min-height */
+    /* This ensures it's at least viewport height minus header/tabs */
 }
 
 /* Left Box: Now holds the radar chart and dropdowns (previously right box) */
@@ -301,6 +311,8 @@
     background-color: #161928;
     border-radius: 0px;
     margin-right: 10px;
+    /* overflow: hidden;  Add this to prevent scrolling */
+    height: 100%;     /* Add this to take full height */
 }
 
 /* Right Box: Now holds the comment section (previously left box) */
@@ -584,4 +596,59 @@
     margin-bottom: 20px;
     background-color: #161928; 
     color: white;
+}
+
+/* New CSS classes to add */
+.radar-charts-container {
+    display: flex;                /* Creates a flex container */
+    flex-direction: column;       /* Stacks children vertically */
+    gap: 20px;                   /* Adds 20px space between the radar charts */
+}
+
+.radar-chart-wrapper {
+    width: 100%;                 /* Takes full width of parent container */
+    min-height: 300px;           /* Ensures minimum height for the chart */
+}
+
+.radar-chart {
+    height: 100%;                /* Takes full height of wrapper */
+    width: 100%;                 /* Takes full width of wrapper */
+}
+
+.welcome-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.welcome-grid {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.welcome-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.welcome-card {
+    background-color: #1E1E1E;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.acknowledgements-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .welcome-grid {
+        flex-direction: column;
+    }
 }

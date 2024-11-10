@@ -65,6 +65,165 @@ app.layout = html.Div([
 
         # Tabs go here, after the logo and header
         dcc.Tabs([
+
+            # Add this as a new first tab in your dcc.Tabs section
+            dcc.Tab(label='Welcome', className='tab-style1', children=[
+                html.Div([
+                    # Welcome header
+                    html.Div([
+                        html.H1('Welcome to the Rural Autonomous Vehicle Readiness Assessment Tool', 
+                            className='text-center', 
+                            style={'fontSize': '2.2rem', 'marginBottom': '1rem', 'color': 'white'}),
+                        html.P('Evaluate your community\'s readiness for autonomous vehicle deployment',
+                            className='text-center',
+                            style={'fontSize': '1.2rem', 'color': '#d1d1d1', 'marginBottom': '2rem'})
+                    ], className='welcome-header'),
+
+                    # Main content grid
+                    html.Div([
+                        # Left Column
+                        html.Div([
+                            # About the Tool Card
+                            html.Div([
+                                html.H2('About This Tool', 
+                                    style={'fontSize': '1.5rem', 'marginBottom': '1rem', 'color': 'white'}),
+                                html.P('This tool assesses rural North Carolina communities\' readiness for autonomous vehicle deployment using three key dimensions:',
+                                    style={'marginBottom': '1rem', 'color': '#d1d1d1'}),
+                                html.Ul([
+                                    html.Li([
+                                        html.Span(['Physical Infrastructure (', html.I('w'), html.Sub('1'), '=0.6)'], style={'color': '#FFA500'}),
+                                        ': Includes unpaved road percentage, road improvement efforts, bridge conditions, and pavement marking retroreflectivity'
+                                    ]),
+                                    html.Li([
+                                        html.Span(['Digital Infrastructure (', html.I('w'), html.Sub('2'), '=0.3)'], style={'color': '#90EE90'}),
+                                        ': Measures network latency, download speeds, and upload speeds relative to AV operational requirements'
+                                    ]),
+                                    html.Li([
+                                        html.Span(['Social Vulnerability (', html.I('w'), html.Sub('3'), '=0.1)'], style={'color': '#87CEEB'}),
+                                        ': Considers percentage of households without vehicles and population aged 65+'
+                                    ]),
+                                    html.Li([
+                                        html.I('w'), html.Sub('1'), ' + ', 
+                                        html.I('w'), html.Sub('2'), ' + ',
+                                        html.I('w'), html.Sub('3'), ' = 1'
+                                    ], style={'fontStyle': 'normal', 'marginTop': '0.5rem'})
+                                ], style={'listStyleType': 'disc', 'paddingLeft': '2rem', 'color': '#d1d1d1'})
+                            ], className='welcome-card'),
+
+                            # Input Metrics Card
+                            html.Div([
+                                html.H2('Key Input Metrics', 
+                                    style={'fontSize': '1.5rem', 'marginBottom': '1rem', 'color': 'white'}),
+                                html.Ul([
+                                    html.Li([
+                                        html.Span('Unpaved Road Percentage', style={'color': '#FFA500'}),
+                                        ': Proportion of unpaved roads relative to the total road network length within each census tract'
+                                    ]),
+                                    html.Li([
+                                        html.Span('Road Improvement Percentage', style={'color': '#FFA500'}),
+                                        ': Length of planned road improvements compared to total road length, with scores based on road condition and improvement effort'
+                                    ]),
+                                    html.Li([
+                                        html.Span('Retroreflectivity Score', style={'color': '#FFA500'}),
+                                        ': Percentage of roads meeting the nighttime visibility safety standard (Avg_RL ≥ 100), combined with road condition data'
+                                    ]),
+                                    html.Li([
+                                        html.Span('Bridge Condition Percentage', style={'color': '#FFA500'}),
+                                        ': Percentage of bridges classified in good condition within each area'
+                                    ]),
+                                    html.Li([
+                                        html.Span('Broadband Network Performance', style={'color': '#90EE90'}),
+                                        ': Maximum upload/download speeds (benchmark: 1000 Mbps) and minimum latency (benchmark: 10 ms) as percentages for each tract'
+                                    ]),
+                                    html.Li([
+                                        html.Span('Social Vulnerability Index', style={'color': '#87CEEB'}),
+                                        ': Combined percentage of households without a vehicle and individuals aged 65 or older in each census tract'
+                                    ])
+                                ], style={'listStyleType': 'disc', 'paddingLeft': '2rem'})
+
+                            ], className='welcome-card')
+                            
+                        ], className='welcome-column'),
+
+                        # Right Column
+                        html.Div([
+                            # How to Use Card
+                            html.Div([
+                                html.H2('How to Use This Tool', 
+                                    style={'fontSize': '1.5rem', 'marginBottom': '1rem', 'color': 'white'}),
+                                html.Div([
+                                    html.H4('1. Map View', style={'color': '#87CEEB', 'marginBottom': '0.5rem', 'fontWeight': 'bold'}),
+                                    html.Ul([
+                                        html.Li(['Customize weights for each dimension (', 
+                                        html.I('w'), html.Sub('1'), ' + ', 
+                                        html.I('w'), html.Sub('2'), ' + ',
+                                        html.I('w'), html.Sub('3'), ' = 1)']
+                                        ),
+                                        html.Li('Select granularity (county or census tract level)'),
+                                        html.Li('Select counties for detailed analysis and visualize specific metrics')
+                                    ], style={'listStyleType': 'disc', 'paddingLeft': '2rem', 'color': '#d1d1d1', 'marginBottom': '1rem'})
+                                ]),
+                                html.Div([
+                                    html.H4('2. Comparison View', style={'color': '#87CEEB', 'marginBottom': '0.5rem', 'fontWeight': 'bold'}),
+                                    html.Ul([
+                                        html.Li('Compare readiness between different counties or against the statewide average'),
+                                        html.Li('Analyze detailed metrics through radar charts'),
+                                        html.Li('View comprehensive readiness insights')
+                                    ], style={'listStyleType': 'disc', 'paddingLeft': '2rem', 'color': '#d1d1d1'})
+                                ])
+                            ], className='welcome-card'),
+
+                            # Readiness Levels Card
+                            html.Div([
+                                html.H2('Understanding Readiness', 
+                                    style={'fontSize': '1.5rem', 'marginBottom': '1rem', 'color': 'white'}),
+                                html.Div([
+                                    html.P('100% Readiness:', style={'color': '#90EE90', 'display': 'inline'}),
+                                    html.P(' All roads paved, good bridge conditions, optimal retroreflectivity (≥100), excellent broadband coverage (relative to 1000 Mbps speeds and 10ms latency), and high transportation access',
+                                        style={'color': '#d1d1d1', 'display': 'inline'})
+                                ], style={'marginBottom': '1rem'}),
+                                html.Div([
+                                    html.P('0% Readiness:', style={'color': '#FF6B6B', 'display': 'inline'}),
+                                    html.P(' Unpaved roads, poor infrastructure conditions, inadequate broadband, and limited transportation access',
+                                        style={'color': '#d1d1d1', 'display': 'inline'})
+                                ])
+                            ], className='welcome-card')
+                        ], className='welcome-column')
+                    ], className='welcome-grid'),
+
+                    # Acknowledgements Footer (outside the grid)
+                    html.Div([
+                        html.Hr(style={'margin': '1rem 0', 'border-color': '#333'}),
+                        html.Div([
+                            html.P([
+                                'This research was supported by the ',
+                                html.A('Center for Rural and Regional Connected Communities', 
+                                    href='https://www.cr2c2.com/',
+                                    target='_blank',
+                                    style={'color': '#87CEEB', 'textDecoration': 'underline'}),
+                                ' (CR2C2), a Regional University Transportation Center funded by the United States Department of Transportation (USDOT). The primary design for the tool was developed by Oladimeji Basit Alaka, and refined by the inputs from the project 1-1 team.'
+                            ], style={'fontSize': '0.9rem', 'color': '#d1d1d1', 'marginBottom': '0.3rem'}),
+                            html.P([
+                                'Project 1-1 Team: ',
+                                html.Br(),
+                                'Principal Investigators: Dr. Jerry Everett (Lead PI), University of Tennessee, Knoxville; Dr. Asad Khattak, University of Tennessee, Knoxville; Dr. Sudhagar Nagarajan, Florida Atlantic University; Dr. Venktesh Pandey, North Carolina Agricultural and Technical State University',
+                                html.Br(),
+                                'Graduate Students: Oladimeji Basit Alaka (NCA&T), Sheikh Muhammad Usman (UTK), Soheila Saedi (FAU)'
+                            ], style={'fontSize': '0.9rem', 'color': '#d1d1d1', 'marginBottom': '0.3rem', 'marginLeft': '0.5rem'}),
+                            html.P([
+                                'Disclaimer: The views and accuracy of the information presented belong to the authors alone. The United States Department of Transportation assumes no liability for the contents or use thereof.'
+                            ], style={
+                                'fontSize': '0.9rem', 
+                                'color': '#a3a3a3', 
+                                'fontStyle': 'italic',
+                                'marginTop': '0.3rem',
+                                'paddingTop': '0.3rem',
+                                'borderTop': '1px solid #444'
+                            })
+                        ], className='acknowledgements')
+                    ], className='acknowledgements-footer')
+                ], className='welcome-container')
+            ]),
             
             # First Tab: Map View
             dcc.Tab(label='Map View', className='tab-style1', children=[
@@ -74,22 +233,24 @@ app.layout = html.Div([
 
                         # Left Section: Input Box
                         html.Div([
-                                html.Label('Enter your weight criteria', className='mainsidebar-label'),
+                                html.Label('Enter weights for three criteria', className='mainsidebar-label'),
                                 html.Div([
                                     dbc.InputGroup([
-                                        dbc.InputGroupText("Physical Infrastructure", className='sidebar-label'),  # Label part
+                                        dbc.InputGroupText("Physical Infrastructure w1", className='sidebar-label'),  # Label part
                                         dcc.Input(id='pi_weight', type='number', value=default_weights['PI'], min=0, max=1, step=0.05, className='input-field')  # Input part
                                     ], className='input-row'),
 
                                     dbc.InputGroup([
-                                        dbc.InputGroupText("Digital Infrastructure", className='sidebar-label'),
+                                        dbc.InputGroupText("Digital Infrastructure w2", className='sidebar-label'),
                                         dcc.Input(id='di_weight', type='number', value=default_weights['DI'], min=0, max=1, step=0.05, className='input-field')
                                     ], className='input-row'),
 
                                     dbc.InputGroup([
-                                        dbc.InputGroupText("Social Vulnerability Index", className='sidebar-label'),
+                                        dbc.InputGroupText("Social Vulnerability Index w3", className='sidebar-label'),
                                         dcc.Input(id='svi_weight', type='number', value=default_weights['SVI'], min=0, max=1, step=0.05, className='input-field')
                                     ], className='input-row'),
+
+                                    html.P("Note: w1 + w2 + w3 = 1", style={'fontSize': '0.9rem', 'color': '#666'})
                                 ], className='input-container'),
                              # Submit button and error message
                             html.Button('Submit', id='submit_button', n_clicks=0, className='submit-button'),
@@ -141,75 +302,97 @@ app.layout = html.Div([
             ]),
 
                         
-                        # Second Tab: Comparison View
+            # Second Tab: Comparison View
+            # Modify just the radar charts section in the original layout
             dcc.Tab(label='Comparison View', className='tab-style2', children=[
                 html.Div([
-
                     # Main container for the comparison layout
                     html.Div([
-
-                        # Left Box: Now contains radar chart and dropdowns
+                        # Left Box: Now contains both radar charts vertically stacked
                         html.Div([
-
                             # Dropdowns for baseline and comparison counties
-                                html.Div([
-                                    dcc.Dropdown(
-                                        id='baseline_county',
-                                        options=[
-                                            {'label': 'State Average', 'value': 'state level'}
-                                        ] + [{'label': county, 'value': county} for county in counties],
-                                        className='custom-dropdown',
-                                        placeholder="Select a county or State Average"
-                                    ),
-                                    dcc.Dropdown(
-                                        id='compare_county',
-                                        options=[
-                                            {'label': 'State Average', 'value': 'state level'}
-                                        ] + [{'label': county, 'value': county} for county in counties],
-                                        className='custom-dropdown',
-                                        placeholder="Select a county or State Average"
-                                    ),
-                                ], className='dropdown-container'),
+                            html.Div([
+                                dcc.Dropdown(
+                                    id='baseline_county',
+                                    options=[
+                                        {'label': 'State Average', 'value': 'state level'}
+                                    ] + [{'label': county, 'value': county} for county in counties],
+                                    className='custom-dropdown',
+                                    placeholder="Select a county or State Average"
+                                ),
+                                dcc.Dropdown(
+                                    id='compare_county',
+                                    options=[
+                                        {'label': 'State Average', 'value': 'state level'}
+                                    ] + [{'label': county, 'value': county} for county in counties],
+                                    className='custom-dropdown',
+                                    placeholder="Select a county or State Average"
+                                ),
+                            ], className='dropdown-container'),
 
-                                # Radar chart
+                            # Radar charts container - now vertical
+                            html.Div([
+                                # Overview radar chart
                                 html.Div([
                                     dcc.Graph(id='comparison_radar_chart', className='radar-chart'),
-                                ], className='radar-chart-container'),
+                                ], className='radar-chart-wrapper'),
+                                
+                                # Detailed metrics radar chart
+                                html.Div([
+                                    dcc.Graph(id='detailed_metrics_radar', className='radar-chart'),
+                                ], className='radar-chart-wrapper'),
+                            ], className='radar-charts-container'),
 
-                        ], className='left-box'),  # End of left-box for radar and dropdowns
+                        ], className='left-box'),  # Keep the original left-box class
 
-                        # Right Box: Now holds comment section
+                        # Right Box: Keeps the original comment section
                         html.Div([
                             html.Div(id='comparison_text', className='comment-box'),
-                        ], className='right-box'),  # End of right-box for comments
+                        ], className='right-box'),  # Keep the original right-box class
 
-                    ], className='comparison-container'),  # End of comparison-container
+                    ], className='comparison-container'),  # Keep the original comparison-container class
 
-                ]),  # End of main container for the comparison view
-            ])
-
-            ,
+                ]),
+            ]),
        
         
           # Third Tab: Documentation
-            dcc.Tab(label='Documentation', className='tab-style3', children=[
-            html.Div([  
-                # Main content container for Documentation
-                html.Div([  
-                    # Box to embed the PDF in an iframe
-                    html.Div([  
-                        html.Iframe(
-                            src="/assets/readiness_app_documentation.pdf",  # Path to your PDF in the assets folder
-                            style={
-                                'width': '100%',  # Takes full width of the container
-                                'height': '100%',  # Takes full height of the container
-                                'border': 'none'   # No borders around the iframe
-                            }
-                        ),
-                    ], className='custom-box')  # Styled container for the PDF
-                ], className='content-container3'),  # Content container for the Documentation view
+            dcc.Tab(label='Documentation', className='tab-style3', children=[ 
+                html.Div([   
+                    # Main content container for Documentation 
+                    html.Div([   
+                        # Box to embed the PDF in an iframe 
+                        html.Div([   
+                            html.Iframe( 
+                                src="/assets/readiness_app_documentation.pdf",  # Path to your PDF in the assets folder 
+                                style={ 
+                                    'width': '100%',  # Takes full width of the container 
+                                    'height': '90%',  # Reduced to make room for contact info 
+                                    'border': 'none'   # No borders around the iframe 
+                                } 
+                            ),
+                            # Contact information section
+                            html.Div([
+                                html.P([
+                                    "If you have questions or feedback, please contact Venktesh Pandey at ",
+                                    html.Code("vpandey"),
+                                    " at ",
+                                    html.Code("ncat"),
+                                    " dot ",
+                                    html.Code("edu")
+                                ], style={
+                                    'textAlign': 'center',
+                                    'padding': '15px',
+                                    'fontSize': '14px',
+                                    'color': '#ffffff',
+                                    'borderTop': '1px solid #eee',
+                                    'marginTop': '10px'
+                                })
+                            ]) 
+                        ], className='custom-box')  # Styled container for the PDF 
+                    ], className='content-container3'),  # Content container for the Documentation view 
+                ]) 
             ])
-        ])
 
         ], className='tabs-container')  # End of tabs container
 
@@ -301,14 +484,6 @@ For social vulnerability, {baseline_county} has an SVI of {baseline_values['Soci
 
 
 # Callbacks
-
-@app.callback(
-    [Output('comparison_radar_chart', 'figure'),
-     Output('comparison_text', 'children')],
-    [Input('baseline_county', 'value'),
-     Input('compare_county', 'value')]
-)
-def update_comparison(baseline_county, compare_county):
     labels = ['Physical Infrastructure', 'Digital Infrastructure', 'Social Vulnerability Index']
 
     # If either county is not selected, return an empty radar chart and text
@@ -452,6 +627,203 @@ def update_comparison(baseline_county, compare_county):
     # Return figure and comparison text using dcc.Markdown
     return fig, dcc.Markdown(comparison_text)
 
+@app.callback(
+    [Output('comparison_radar_chart', 'figure'),
+     Output('detailed_metrics_radar', 'figure'),
+     Output('comparison_text', 'children')],
+    [Input('baseline_county', 'value'),
+     Input('compare_county', 'value')]
+)
+def update_comparison_charts(baseline_county, compare_county):
+    labels = ['Physical Infrastructure', 'Digital Infrastructure', 'Social Vulnerability Index']
+    
+    detailed_labels = [
+        'Road Improvement',
+        'Paved Roads',
+        'Retroreflectivity',
+        'Good Bridges',
+        'Network Latency',
+        'Download Speed',
+        'Upload Speed',
+        'Transport Access'
+    ]
+    
+    # If either county is not selected, return empty figures and text
+    if not baseline_county or not compare_county:
+        empty_fig = go.Figure()
+        empty_fig.update_layout(
+            polar=dict(radialaxis=dict(visible=True)),
+            showlegend=False,
+            plot_bgcolor='#161928',
+            paper_bgcolor='#161928',
+            font=dict(color='white'),
+            margin=dict(t=20, b=20, l=20, r=20)
+        )
+        return empty_fig, empty_fig, ""
+
+    # Get county means for calculations
+    county_means = census_tracts.groupby('COUNTY').agg({
+        'county_SVI': 'mean',
+        'county_SPI': 'mean',
+        'county_SDI': 'mean',
+        'county_SVI_scaled': 'mean',
+        "EP_AGE65": 'mean',
+        'EP_NOVEH': 'mean',
+        'B_latency_percent': 'mean',
+        'B_download_percent': 'mean',
+        'B_upload_percent': 'mean',
+        'RL_score_percentage': 'mean',
+        'good_bridge_percentage': 'mean',
+        'Final_Road_Improvement_Score_Percentage': 'mean',
+        'unpaved_percentage': 'mean'
+    }).reset_index()
+    
+    # Calculate metrics for baseline county
+    if baseline_county == 'state level':
+        baseline_detailed_values = [
+            county_means['Final_Road_Improvement_Score_Percentage'].mean() * 100,
+            100 - (county_means['unpaved_percentage'].mean() * 100),
+            county_means['RL_score_percentage'].mean() * 100,
+            county_means['good_bridge_percentage'].mean() * 100,
+            county_means['B_latency_percent'].mean() * 100,
+            county_means['B_download_percent'].mean() * 100,
+            county_means['B_upload_percent'].mean() * 100,
+            100 - (county_means['EP_NOVEH'].mean() * 100)
+        ]
+        baseline_values = {
+            'Physical Infrastructure': county_means['county_SPI'].mean() * 100,
+            'Digital Infrastructure': county_means['county_SDI'].mean() * 100,
+            'Social Vulnerability Index': county_means['county_SVI_scaled'].mean() * 100
+        }
+    else:
+        baseline_data = county_means[county_means['COUNTY'] == baseline_county].iloc[0]
+        baseline_detailed_values = [
+            baseline_data['Final_Road_Improvement_Score_Percentage'] * 100,
+            100 - (baseline_data['unpaved_percentage'] * 100),
+            baseline_data['RL_score_percentage'] * 100,
+            baseline_data['good_bridge_percentage'] * 100,
+            baseline_data['B_latency_percent'] * 100,
+            baseline_data['B_download_percent'] * 100,
+            baseline_data['B_upload_percent'] * 100,
+            100 - (baseline_data['EP_NOVEH'] * 100)
+        ]
+        baseline_values = {
+            'Physical Infrastructure': baseline_data['county_SPI'] * 100,
+            'Digital Infrastructure': baseline_data['county_SDI'] * 100,
+            'Social Vulnerability Index': baseline_data['county_SVI_scaled'] * 100
+        }
+    
+    # Calculate metrics for comparison county
+    if compare_county == 'state level':
+        compare_detailed_values = [
+            county_means['Final_Road_Improvement_Score_Percentage'].mean() * 100,
+            100 - (county_means['unpaved_percentage'].mean() * 100),
+            county_means['RL_score_percentage'].mean() * 100,
+            county_means['good_bridge_percentage'].mean() * 100,
+            county_means['B_latency_percent'].mean() * 100,
+            county_means['B_download_percent'].mean() * 100,
+            county_means['B_upload_percent'].mean() * 100,
+            100 - (county_means['EP_NOVEH'].mean() * 100)
+        ]
+        compare_values = {
+            'Physical Infrastructure': county_means['county_SPI'].mean() * 100,
+            'Digital Infrastructure': county_means['county_SDI'].mean() * 100,
+            'Social Vulnerability Index': county_means['county_SVI_scaled'].mean() * 100
+        }
+    else:
+        compare_data = county_means[county_means['COUNTY'] == compare_county].iloc[0]
+        compare_detailed_values = [
+            compare_data['Final_Road_Improvement_Score_Percentage'] * 100,
+            100 - (compare_data['unpaved_percentage'] * 100),
+            compare_data['RL_score_percentage'] * 100,
+            compare_data['good_bridge_percentage'] * 100,
+            compare_data['B_latency_percent'] * 100,
+            compare_data['B_download_percent'] * 100,
+            compare_data['B_upload_percent'] * 100,
+            100 - (compare_data['EP_NOVEH'] * 100)
+        ]
+        compare_values = {
+            'Physical Infrastructure': compare_data['county_SPI'] * 100,
+            'Digital Infrastructure': compare_data['county_SDI'] * 100,
+            'Social Vulnerability Index': compare_data['county_SVI_scaled'] * 100
+        }
+    
+    # Create original radar chart
+    fig = go.Figure()
+    
+    # Add traces for original radar chart
+    fig.add_trace(go.Scatterpolar(
+        r=list(baseline_values.values()),
+        theta=labels,
+        fill='toself',
+        name=baseline_county if baseline_county != 'state level' else 'State Average'
+    ))
+    
+    fig.add_trace(go.Scatterpolar(
+        r=list(compare_values.values()),
+        theta=labels,
+        fill='toself',
+        name=compare_county if compare_county != 'state level' else 'State Average'
+    ))
+    
+    # Create detailed metrics radar chart
+    detailed_fig = go.Figure()
+
+    revised_labels = [
+        '% Planned Road Upgrades',       # Road Improvement
+        '% Paved Roads',         # Paved Roads
+        'Retroreflectivity Score %',   # Retroreflectivity
+        '% Good Bridges',        # Good Bridges
+        'Network Latency % (relative to 10 ms)',       # Network Latency
+        'Download Speed % (relative to 1000 Mbps)', # Download Speed
+        'Upload Speed % (relative to 1000 Mbps)',   # Upload Speed
+        '% Population with Vehicles'     # Transport Access
+    ]
+
+    
+    # Add traces for detailed radar chart
+    detailed_fig.add_trace(go.Scatterpolar(
+        r=baseline_detailed_values,
+        theta=revised_labels,
+        fill='toself',
+        name=baseline_county if baseline_county != 'state level' else 'State Average'
+    ))
+    
+    detailed_fig.add_trace(go.Scatterpolar(
+        r=compare_detailed_values,
+        theta=revised_labels,
+        fill='toself',
+        name=compare_county if compare_county != 'state level' else 'State Average'
+    ))
+    
+    # Update layouts for both charts
+    for chart in [fig, detailed_fig]:
+        chart.update_layout(
+            polar=dict(
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 100],
+                    showticklabels=False
+                ),
+                bgcolor='#161928'
+            ),
+            showlegend=True,
+            plot_bgcolor='#161928',
+            paper_bgcolor='#161928',
+            font=dict(color='white'),
+            height=450,  # Fixed height
+            margin=dict(t=30, b=30, l=30, r=30)  # Adjusted margins
+        )
+    
+    # Generate comparison text
+    comparison_text = generate_comparison_text(
+        baseline_county, compare_county, baseline_values, compare_values,
+        dict(zip(detailed_labels, baseline_detailed_values)),
+        dict(zip(detailed_labels, compare_detailed_values))
+    )
+    # print(comparison_text)
+    
+    return fig, detailed_fig, dcc.Markdown(comparison_text)
 
 @app.callback(
     Output('weight_error_message', 'children'),
@@ -572,9 +944,9 @@ def update_map(granularity, score_type, county_selected, weights):
 
         fig.update_traces(hovertemplate=(
             "<b>%{customdata[0]}</b> (Tract: %{customdata[5]})<br><br>"
-            "<span style='color: orange;'>⬤</span> <b>Physical Infrastructure</b>: %{customdata[1]:.2f}%<br>"
-            "<span style='color: green;'>⬤</span> <b>Digital Infrastructure</b>: %{customdata[2]:.2f}%<br>"
-            "<span style='color: lightblue;'>⬤</span> <b>Social Vulnerability Index</b>: %{customdata[3]:.2f}%<br>"
+            "<span style='color: orange;'>⬤</span> <b>Physical Infrastructure</b>: %{customdata[1]:.2f}<br>"
+            "<span style='color: green;'>⬤</span> <b>Digital Infrastructure</b>: %{customdata[2]:.2f}<br>"
+            "<span style='color: lightblue;'>⬤</span> <b>Social Vulnerability Index</b>: %{customdata[3]:.2f}<br>"
             "<span style='color: darkblue;'>⬤</span> <b>Overall Readiness</b>: %{customdata[4]:.2f}%<br>"
             "<extra></extra>"
         ))
@@ -612,9 +984,9 @@ def update_map(granularity, score_type, county_selected, weights):
 
         fig.update_traces(hovertemplate=(
             "<b>%{customdata[0]}</b><br><br>"
-            "<span style='color: orange;'>⬤</span> <b>Physical Infrastructure</b>: %{customdata[1]:.2f}%<br>"
-            "<span style='color: green;'>⬤</span> <b>Digital Infrastructure</b>: %{customdata[2]:.2f}%<br>"
-            "<span style='color: lightblue;'>⬤</span> <b>Social Vulnerability Index</b>: %{customdata[3]:.2f}%<br>"
+            "<span style='color: orange;'>⬤</span> <b>Physical Infrastructure</b>: %{customdata[1]:.2f}<br>"
+            "<span style='color: green;'>⬤</span> <b>Digital Infrastructure</b>: %{customdata[2]:.2f}<br>"
+            "<span style='color: lightblue;'>⬤</span> <b>Social Vulnerability Index</b>: %{customdata[3]:.2f}<br>"
             "<span style='color: darkblue;'>⬤</span> <b>Overall Readiness</b>: %{customdata[4]:.2f}%<br>"
             "<extra></extra>"
         ))
