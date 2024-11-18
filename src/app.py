@@ -562,7 +562,7 @@ For social vulnerability, {baseline_county} has an SVI of {baseline_values['Soci
             "Retroreflectivity Score": baseline_data["RL_score_percentage"]* 100,
             "Good Bridge Percentage": baseline_data["good_bridge_percentage"]* 100,
             "Road Improvement Percentage": baseline_data["Final_Road_Improvement_Score_Percentage"] * 100,
-            "Unpaved Road Percentage": 100- (baseline_data["unpaved_percentage"]* 100)
+            "Unpaved Road Percentage": (baseline_data["unpaved_percentage"]* 100)
         }
 
     if compare_county == 'state level':
@@ -584,7 +584,7 @@ For social vulnerability, {baseline_county} has an SVI of {baseline_values['Soci
             "Retroreflectivity Score": compare_data["RL_score_percentage"] * 100,
             "Good Bridge Percentage": compare_data["good_bridge_percentage"]* 100,
             "Road Improvement Percentage": compare_data["Final_Road_Improvement_Score_Percentage"] * 100,
-            "Unpaved Road Percentage": 100 - (compare_data["unpaved_percentage"] * 100)
+            "Unpaved Road Percentage": (compare_data["unpaved_percentage"] * 100)
         }
 
     # Generate radar plot
@@ -638,14 +638,14 @@ def update_comparison_charts(baseline_county, compare_county):
     labels = ['Physical Infrastructure', 'Digital Infrastructure', 'Social Vulnerability Index']
     
     detailed_labels = [
-        'Road Improvement',
-        'Paved Roads',
-        'Retroreflectivity',
-        'Good Bridges',
+        'Road Improvement Percentage',
+        'Unpaved Road Percentage',
+        'Retroreflectivity Score',
+        'Good Bridge Percentage',
         'Network Latency',
         'Download Speed',
         'Upload Speed',
-        'Transport Access'
+        'No Vehicle'
     ]
     
     # If either county is not selected, return empty figures and text
@@ -682,13 +682,13 @@ def update_comparison_charts(baseline_county, compare_county):
     if baseline_county == 'state level':
         baseline_detailed_values = [
             county_means['Final_Road_Improvement_Score_Percentage'].mean() * 100,
-            100 - (county_means['unpaved_percentage'].mean() * 100),
+            (county_means['unpaved_percentage'].mean() * 100),
             county_means['RL_score_percentage'].mean() * 100,
             county_means['good_bridge_percentage'].mean() * 100,
             county_means['B_latency_percent'].mean() * 100,
             county_means['B_download_percent'].mean() * 100,
             county_means['B_upload_percent'].mean() * 100,
-            100 - (county_means['EP_NOVEH'].mean() * 100)
+            (county_means['EP_NOVEH'].mean() * 100)
         ]
         baseline_values = {
             'Physical Infrastructure': county_means['county_SPI'].mean() * 100,
@@ -699,7 +699,7 @@ def update_comparison_charts(baseline_county, compare_county):
         baseline_data = county_means[county_means['COUNTY'] == baseline_county].iloc[0]
         baseline_detailed_values = [
             baseline_data['Final_Road_Improvement_Score_Percentage'] * 100,
-            100 - (baseline_data['unpaved_percentage'] * 100),
+            (baseline_data['unpaved_percentage'] * 100),
             baseline_data['RL_score_percentage'] * 100,
             baseline_data['good_bridge_percentage'] * 100,
             baseline_data['B_latency_percent'] * 100,
@@ -717,7 +717,7 @@ def update_comparison_charts(baseline_county, compare_county):
     if compare_county == 'state level':
         compare_detailed_values = [
             county_means['Final_Road_Improvement_Score_Percentage'].mean() * 100,
-            100 - (county_means['unpaved_percentage'].mean() * 100),
+            (county_means['unpaved_percentage'].mean() * 100),
             county_means['RL_score_percentage'].mean() * 100,
             county_means['good_bridge_percentage'].mean() * 100,
             county_means['B_latency_percent'].mean() * 100,
@@ -734,7 +734,7 @@ def update_comparison_charts(baseline_county, compare_county):
         compare_data = county_means[county_means['COUNTY'] == compare_county].iloc[0]
         compare_detailed_values = [
             compare_data['Final_Road_Improvement_Score_Percentage'] * 100,
-            100 - (compare_data['unpaved_percentage'] * 100),
+            (compare_data['unpaved_percentage'] * 100),
             compare_data['RL_score_percentage'] * 100,
             compare_data['good_bridge_percentage'] * 100,
             compare_data['B_latency_percent'] * 100,
