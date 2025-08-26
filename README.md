@@ -22,6 +22,11 @@ Visit [ar2tdashboard.onrender.com](https://ar2tdashboard.onrender.com) to use th
 
 For detailed documentation and methodology, please visit the "Documentation" tab within the application.
 
+## Citation
+If you use this work in your research, please cite the following paper:
+
+`Alaka, O. B., Pandey, V., & Khattak, A. (in press). Investigating Automated Shuttle Readiness for Rural Areas: A North Carolina Case Study. Transportation Research Record: Journal of the Transportation Research Board.`
+
 ## Acknowledgments
 
 This research was supported by the Center for Rural and Regional Connected Communities (CR2C2), a Regional University Transportation Center funded by the United States Department of Transportation (USDOT). See Project 1-1 Information [Designing Tools for Assessing Readiness of Rural Communities for New Technologies](https://www.cr2c2.com/research/major-research-initiatives/mri-1/project-1-1).
