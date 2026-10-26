@@ -29,6 +29,18 @@ Use the tool at [its new home on GitHub Pages](https://venktesh22.github.io/dash
 
 For detailed documentation and methodology, please visit the "Documentation" tab within the application.
 
+## Running the original Dash app
+
+The original Python/Dash version is preserved on the
+[`dash-app`](https://github.com/tml-ncat/Ar2tdashboard/tree/dash-app) branch. To run it locally:
+
+    git clone -b dash-app https://github.com/tml-ncat/Ar2tdashboard.git
+    cd Ar2tdashboard
+    pip install -r requirements.txt
+    python src/app.py
+
+Then open http://127.0.0.1:8050 in your browser.
+
 ## Citation
 If you use this work in your research, please cite the following paper:
 
