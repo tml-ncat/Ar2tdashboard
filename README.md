@@ -1,5 +1,12 @@
 # Rural Autonomous Vehicle Readiness Assessment Tool (Ar2tdashboard)
 
+> **This tool has moved.** It now runs as a static page on the lab's GitHub Pages site:
+> https://venktesh22.github.io/dashboards/Rural_AV_Readiness_Dashboard/Rural_AV_Readiness_Dashboard.html
+>
+> The Render service at `ar2tdashboard.onrender.com` now permanently redirects there, so existing
+> links keep working. The original Dash application is preserved on the
+> [`dash-app`](https://github.com/tml-ncat/Ar2tdashboard/tree/dash-app) branch.
+
 This interactive dashboard assesses rural North Carolina communities' readiness for autonomous vehicle deployment across three key dimensions:
 
 - **Physical Infrastructure**: Evaluates road conditions, bridges, and markings
@@ -8,7 +15,7 @@ This interactive dashboard assesses rural North Carolina communities' readiness 
 
 ## Live Demo
 
-Visit [ar2tdashboard.onrender.com](https://ar2tdashboard.onrender.com) to use the tool.
+Use the tool at [its new home on GitHub Pages](https://venktesh22.github.io/dashboards/Rural_AV_Readiness_Dashboard/Rural_AV_Readiness_Dashboard.html). The old address, [ar2tdashboard.onrender.com](https://ar2tdashboard.onrender.com), redirects there.
 
 ## Features
 
